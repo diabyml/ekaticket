@@ -1,3 +1,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+html,
+body,
+:root {
+  height: 100%;
+}
+
+.cl-internal-b3fm6y,
+.cl-internal-wkkub3 {
+  display: none;
+}
+
+@media (max-width: 300px) {
+  .logoText {
+    display: none;
+  }
+}
