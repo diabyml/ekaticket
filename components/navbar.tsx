@@ -12,25 +12,23 @@ import Link from "next/link";
 import { ThemeSwitcher } from "./themeSwitcher";
 import LoginAvatar from "./LoginAvatar";
 import { SignedOut } from "@clerk/nextjs";
-import { SignedIn, UserButton } from "@clerk/clerk-react";
+import { SignedIn } from "@clerk/clerk-react";
+import UserButton from "./UserButton";
 
 export default function Navbar() {
   return (
     <NexUiNavbar isBordered>
       <NavbarBrand className="cursor-pointer">
-        <Link href={"/"} className="flex">
+        <Link href={"/"} className="flex items-center">
           <Image src={"/logo.png"} alt="Logo image" width={30} height={40} />
           <div className="ml-1 flex flex-col leading-none logoText">
-            <p className="font-bold text-inherit tracking-wider">e-KaTicket</p>
-            <p className="text-xs text-foreground-500 tracking-tighter">
+            <p className="font-bold text-inherit text-[12px]">e-KaTicket</p>
+            <p className="text-[6px] text-foreground-500 tracking-tight">
               Une vision des solutions
             </p>
           </div>
         </Link>
       </NavbarBrand>
-      {/* <NavbarContent className="hidden sm:flex gap-4" justify="center">
-        <NavbarItem></NavbarItem>
-      </NavbarContent> */}
       <NavbarContent justify="end">
         {/* signed out content */}
         <SignedOut>
@@ -49,7 +47,8 @@ export default function Navbar() {
         {/* signed in content */}
         <SignedIn>
           <NavbarItem>
-            <UserButton afterSignOutUrl="/" />
+            {/* <UserButton afterSignOutUrl="/" /> */}
+            <UserButton />
           </NavbarItem>
         </SignedIn>
         <NavbarItem>

@@ -1,10 +1,13 @@
 import MainContainer from "@/components/containers/MainContainer";
+import { UserProfile } from "@clerk/nextjs";
 import React from "react";
 
 function Page() {
   return (
     <MainContainer>
-      <p>HOME PAGE</p>
+      <div className="pt-6">
+        <UserProfile />
+      </div>
     </MainContainer>
   );
 }

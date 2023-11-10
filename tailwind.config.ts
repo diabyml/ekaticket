@@ -8,6 +8,8 @@ const config: Config = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
     "./node_modules/@nextui-org/theme/dist/components/button.js",
     "./node_modules/@nextui-org/theme/dist/components/navbar.js",
+    "./node_modules/@nextui-org/theme/dist/components/dropdown.js",
+    "./node_modules/@nextui-org/theme/dist/components/avatar.js",
   ],
   theme: {
     extend: {
