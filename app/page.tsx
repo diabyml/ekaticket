@@ -1,12 +1,12 @@
 import { ThemeSwitcher } from "@/components/themeSwitcher";
-import { Button } from "@nextui-org/button";
+import { UserButton } from "@clerk/nextjs";
 
 export default function Home() {
   return (
-    <div className="p-5">
+    <div className="p-5 flex space-x-4">
+      <p>Ekaticket</p>
       <ThemeSwitcher />
-      <h1>Hello, world</h1>
-      <Button color="primary">Save Changes</Button>
+      <UserButton afterSignOutUrl="/" />
     </div>
   );
 }
