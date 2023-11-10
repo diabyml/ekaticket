@@ -9,13 +9,13 @@ import {
 } from "@nextui-org/navbar";
 import Image from "next/image";
 import Link from "next/link";
-import { ThemeSwitcher } from "./themeSwitcher";
-import LoginAvatar from "./LoginAvatar";
-import { SignedOut } from "@clerk/nextjs";
+import { ThemeSwitcher } from "../themeSwitcher";
+import LoginAvatar from "../LoginAvatar";
+import { SignedOut, useSession } from "@clerk/nextjs";
 import { SignedIn } from "@clerk/clerk-react";
-import UserButton from "./UserButton";
+import UserButton from "../UserButton";
 
-export default function Navbar() {
+export default function DesktopNavbar() {
   return (
     <NexUiNavbar isBordered>
       <NavbarBrand className="cursor-pointer">

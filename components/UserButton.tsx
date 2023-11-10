@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import {
   Dropdown,
@@ -5,13 +6,18 @@ import {
   DropdownMenu,
   DropdownItem,
 } from "@nextui-org/dropdown";
+import { useClerk, useSession } from "@clerk/nextjs";
 
 import { Avatar } from "@nextui-org/avatar";
 import Link from "next/link";
-
-import { useUser } from "@clerk/nextjs";
+import { checkUserRole } from "@/libs/user";
+import { useRouter } from "next/navigation";
 
 export default function UserButton() {
+  const { signOut, user } = useClerk();
+  const router = useRouter();
+  const { session } = useSession();
+  const userRole = checkUserRole(session);
   return (
     <div className="flex items-center gap-4">
       <Dropdown
@@ -31,7 +37,9 @@ export default function UserButton() {
         <DropdownMenu aria-label="Profile Actions" variant="flat">
           <DropdownItem key="profile" className="h-14 gap-2">
             {/* <p className="font-semibold">Signed in as</p> */}
-            <p className="font-semibold">zoey@example.com </p>
+            <p className="font-semibold">
+              {user?.primaryEmailAddress?.emailAddress}
+            </p>
           </DropdownItem>
           <DropdownItem key="account">
             <Link href={"/profile"}>mon compte</Link>
@@ -39,7 +47,20 @@ export default function UserButton() {
           <DropdownItem key="my_events">
             <Link href={"/events"}>mes événements</Link>
           </DropdownItem>
-          <DropdownItem key="logout" color="danger">
+
+          {userRole === "admin" ? (
+            <DropdownItem key="admin">
+              <Link href={"/admin"}>admin</Link>
+            </DropdownItem>
+          ) : (
+            (null as any)
+          )}
+
+          <DropdownItem
+            key="logout"
+            color="danger"
+            onClick={() => signOut(() => router.push("/"))}
+          >
             Déconnecter
           </DropdownItem>
         </DropdownMenu>

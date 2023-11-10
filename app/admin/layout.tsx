@@ -1,10 +1,9 @@
-import Navbar from "@/components/navbar/navbar";
-import React from "react";
+import DesktopNavbar from "@/components/navbar/DesktopNavbar";
 
 function Layout({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <Navbar />
+      <DesktopNavbar />
       {children}
     </>
   );

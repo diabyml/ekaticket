@@ -4,7 +4,7 @@ import React from "react";
 function Page() {
   return (
     <MainContainer>
-      <p>HOME PAGE</p>
+      <p className="pt-6">HOME PAGE</p>
     </MainContainer>
   );
 }

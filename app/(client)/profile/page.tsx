@@ -4,11 +4,9 @@ import React from "react";
 
 function Page() {
   return (
-    <MainContainer>
-      <div className="pt-6">
-        <UserProfile />
-      </div>
-    </MainContainer>
+    <div className="pt-6 mx-auto flex justify-center">
+      <UserProfile />
+    </div>
   );
 }
 
