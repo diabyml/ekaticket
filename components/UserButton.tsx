@@ -30,7 +30,7 @@ export default function UserButton() {
             as="button"
             className="transition-transform"
             showFallback
-            src=""
+            src={user?.imageUrl}
             size="sm"
           />
         </DropdownTrigger>
