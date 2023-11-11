@@ -3,6 +3,8 @@ import React, { useEffect, useState } from "react";
 import { useOrganizationList } from "@clerk/nextjs";
 import { useRouter } from "next/navigation";
 import MainContainer from "@/components/containers/MainContainer";
+import CreateEventForm from "./components/CreateEventForm";
+import { Heading } from "@/components/ui/heading";
 
 function Page() {
   const { organizationList, isLoaded, setActive } = useOrganizationList();
@@ -26,11 +28,6 @@ function Page() {
     }
   }, [isLoaded, organizationList, router]);
 
-  // Get the organization details of the admin
-  const adminOrganization = isLoaded
-    ? organizationList.find((org) => org.membership.role === "admin")
-    : null;
-
   if (showLoader) {
     return <>Loading...</>;
   }
@@ -38,7 +35,10 @@ function Page() {
   return (
     <div>
       <MainContainer>
-        <p className="pt-6">ADMIN PAGE</p>
+        <div className="pt-6">
+          <Heading title="The events" description="Manage events" />
+          <CreateEventForm />
+        </div>
       </MainContainer>
     </div>
   );
