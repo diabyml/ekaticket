@@ -1,5 +1,4 @@
 import MainContainer from "@/components/containers/MainContainer";
-import CreateEventForm from "./components/CreateEventForm";
 import { Heading } from "@/components/ui/heading";
 import { Button } from "@nextui-org/button";
 import { ImagePlus } from "lucide-react";
