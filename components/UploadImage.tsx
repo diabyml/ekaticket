@@ -68,9 +68,9 @@ const ImageUpload: React.FC<ImageUploadProps> = ({
               disabled={disabled}
               color="secondary"
               onClick={onClick}
+              startContent={<ImagePlus className="h-4 w-4" />}
             >
-              <ImagePlus className="h-4 w-4 mr-2" />
-              Upload an Image
+              Charger Image
             </Button>
           );
         }}
