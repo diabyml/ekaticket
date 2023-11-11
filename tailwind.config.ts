@@ -10,11 +10,15 @@ const config: Config = {
     "./node_modules/@nextui-org/theme/dist/components/navbar.js",
     "./node_modules/@nextui-org/theme/dist/components/dropdown.js",
     "./node_modules/@nextui-org/theme/dist/components/avatar.js",
+    "./node_modules/@nextui-org/theme/dist/components/input.js",
+    "./node_modules/@nextui-org/theme/dist/components/checkbox.js",
   ],
   theme: {
-    colors: {
-      muted: {
-        foreground: "hsl(215.4 16.3% 46.9%)",
+    extend: {
+      colors: {
+        muted: {
+          foreground: "hsl(215.4 16.3% 46.9%)",
+        },
       },
     },
   },

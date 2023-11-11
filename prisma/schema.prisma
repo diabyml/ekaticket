@@ -12,11 +12,10 @@ datasource db {
 }
 
 model Event {
-  id          String   @id @default(uuid())
+  id          String  @id @default(uuid())
   title       String
   location    String
-  date        DateTime
-  time        DateTime
+  dateTime    String
   description String?
   imageUrl    String
   ticketLimit Int?
