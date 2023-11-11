@@ -1,12 +1,12 @@
-import { SignUp } from '@clerk/nextjs'
-import React from 'react'
+import SignupForm from "@/components/auth/SignupForm";
+import React from "react";
 
 function Page() {
   return (
-      <>
-        <SignUp/>
-      </>
-  )
+    <>
+      <SignupForm />
+    </>
+  );
 }
 
-export default Page
+export default Page;

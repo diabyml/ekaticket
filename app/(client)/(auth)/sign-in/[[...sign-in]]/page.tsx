@@ -1,10 +1,10 @@
-import { SignIn } from "@clerk/nextjs";
+import SigninForm from "@/components/auth/SigninForm";
 import React from "react";
 
 function Page() {
   return (
     <>
-      <SignIn />
+      <SigninForm />
     </>
   );
 }

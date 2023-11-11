@@ -11,6 +11,7 @@
   "dependencies": {
     "@clerk/localizations": "^1.26.9",
     "@clerk/nextjs": "^4.27.1",
+    "@clerk/themes": "^1.7.9",
     "@nextui-org/avatar": "^2.0.24",
     "@nextui-org/button": "^2.0.25",
     "@nextui-org/dropdown": "^2.1.16",

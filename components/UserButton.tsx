@@ -22,7 +22,7 @@ export default function UserButton() {
     <div className="flex items-center gap-4">
       <Dropdown
         placement="bottom-end"
-        className="bg-white dark:bg-gray-700   shadow-md"
+        className="bg-white dark:bg-[#19191a]   shadow-md"
       >
         <DropdownTrigger>
           <Avatar
