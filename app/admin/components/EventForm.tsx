@@ -3,17 +3,23 @@
 import ImageUpload from "@/components/UploadImage";
 import { CreateEvent } from "@/libs/actions";
 import { Button } from "@nextui-org/button";
-import { Checkbox } from "@nextui-org/checkbox";
 import { Input, Textarea } from "@nextui-org/input";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { useFormState } from "react-dom";
 
 function EventForm() {
   const [imageUrl, setImageUrl] = useState("");
+  const initialState = { message: "", errors: {} };
+  const [state, dispatch] = useFormState(CreateEvent, initialState);
+
+  // useEffect(() => {
+  //   console.log(state.errors);
+  // }, [state]);
 
   return (
     <>
       <div className="pt-4">
-        <form action={CreateEvent}>
+        <form action={dispatch}>
           <div className="mb-6">
             <ImageUpload
               value={imageUrl ? [imageUrl] : []}
@@ -21,6 +27,12 @@ function EventForm() {
               onChange={(url) => setImageUrl(url)}
               onRemove={() => setImageUrl("")}
             />
+            {/* F31260 */}
+            {state.errors?.imageUrl && (
+              <div className="text-[#F31260] p-1 text-xs">
+                Image non ajoutée
+              </div>
+            )}
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
             <input
@@ -38,6 +50,15 @@ function EventForm() {
               color="secondary"
               type="text"
               label="Titre"
+              errorMessage={
+                state.errors?.title && (
+                  <>
+                    {state.errors.title.map((err) => (
+                      <span key={err}> {err} </span>
+                    ))}
+                  </>
+                )
+              }
             />
             <Input
               name="location"
@@ -47,6 +68,15 @@ function EventForm() {
               color="secondary"
               type="text"
               label="Lieu"
+              errorMessage={
+                state.errors?.location && (
+                  <>
+                    {state.errors.location.map((err) => (
+                      <span key={err}> {err} </span>
+                    ))}
+                  </>
+                )
+              }
             />
             <Input
               name="dateTime"
@@ -56,6 +86,15 @@ function EventForm() {
               color="secondary"
               type="text"
               label="Date et Heure"
+              errorMessage={
+                state.errors?.dateTime && (
+                  <>
+                    {state.errors.dateTime.map((err) => (
+                      <span key={err}> {err} </span>
+                    ))}
+                  </>
+                )
+              }
             />
 
             <Input
@@ -66,6 +105,16 @@ function EventForm() {
               color="secondary"
               type="number"
               label="Limit ticket"
+              defaultValue="0"
+              errorMessage={
+                state.errors?.ticketLimit && (
+                  <>
+                    {state.errors.ticketLimit.map((err) => (
+                      <span key={err}> {err} </span>
+                    ))}
+                  </>
+                )
+              }
             />
             <Input
               name="price"
@@ -77,6 +126,15 @@ function EventForm() {
               label="Prix"
               defaultValue="0"
               description="si l'événement est gratuit, fixez le prix à 0"
+              errorMessage={
+                state.errors?.price && (
+                  <>
+                    {state.errors.price.map((err) => (
+                      <span key={err}> {err} </span>
+                    ))}
+                  </>
+                )
+              }
             />
           </div>
           <div className="mt-6">
@@ -87,19 +145,20 @@ function EventForm() {
               placeholder="Entrez votre description"
               color="secondary"
               className=""
+              errorMessage={
+                state.errors?.description && (
+                  <>
+                    {state.errors.description.map((err) => (
+                      <span key={err}> {err} </span>
+                    ))}
+                  </>
+                )
+              }
             />
           </div>
-          {/* <div className="mt-6">
-            <Checkbox
-              name="isFree"
-              id="isFree"
-              color="secondary"
-              value={"yes"}
-              defaultChecked={false}
-            >
-              Gratuit
-            </Checkbox>
-          </div> */}
+          {state.message && (
+            <div className="text-[#F31260] pt-4 text-xs">{state.message}</div>
+          )}
           <div className="mt-6 flex md:justify-end">
             <Button type="submit" color="primary">
               Ajouter événement

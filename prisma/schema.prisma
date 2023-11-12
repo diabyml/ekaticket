@@ -19,8 +19,11 @@ model Event {
   description String?
   imageUrl    String
   ticketLimit Int?
-  price       Float?
+  price       Int?
   isFree      Boolean
-  hasOccurred Boolean
-  isArchived  Boolean
+  hasOccurred Boolean @default(false)
+  isArchived  Boolean @default(false)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
