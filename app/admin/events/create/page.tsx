@@ -6,7 +6,7 @@ import EventForm from "../../components/EventForm";
 function Page() {
   return (
     <MainContainer>
-      <div className="pt-6">
+      <div className="pt-6 pb-6">
         <Heading
           title="Nouvel événement"
           description="création d'un nouvel événement"

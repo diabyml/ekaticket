@@ -12,6 +12,8 @@ const config: Config = {
     "./node_modules/@nextui-org/theme/dist/components/avatar.js",
     "./node_modules/@nextui-org/theme/dist/components/input.js",
     "./node_modules/@nextui-org/theme/dist/components/checkbox.js",
+    "./node_modules/@nextui-org/theme/dist/components/card.js",
+    "./node_modules/@nextui-org/theme/dist/components/image.js",
   ],
   theme: {
     extend: {
