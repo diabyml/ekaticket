@@ -26,6 +26,16 @@ const ImageUpload: React.FC<ImageUploadProps> = ({
     setIsMounted(true);
   }, []);
 
+  useEffect(() => {
+    // TopMenuItem__ItemTitle-jFwrJE
+    const title = document.querySelector(".dDOLyA");
+    if (title) {
+      title.textContent = "Mes Fichiers";
+    } else {
+      console.log("title not found");
+    }
+  }, [isMounted]);
+
   const onUpload = (result: any) => {
     onChange(result.info.secure_url);
   };

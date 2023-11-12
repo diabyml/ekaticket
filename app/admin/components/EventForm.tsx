@@ -75,6 +75,8 @@ function EventForm() {
               color="secondary"
               type="number"
               label="Prix"
+              defaultValue="0"
+              description="si l'événement est gratuit, fixez le prix à 0"
             />
           </div>
           <div className="mt-6">
@@ -87,7 +89,7 @@ function EventForm() {
               className=""
             />
           </div>
-          <div className="mt-6">
+          {/* <div className="mt-6">
             <Checkbox
               name="isFree"
               id="isFree"
@@ -97,7 +99,7 @@ function EventForm() {
             >
               Gratuit
             </Checkbox>
-          </div>
+          </div> */}
           <div className="mt-6 flex md:justify-end">
             <Button type="submit" color="primary">
               Ajouter événement
