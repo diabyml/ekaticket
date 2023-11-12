@@ -149,7 +149,7 @@ function EventForm() {
                 state.errors?.description && (
                   <>
                     {state.errors.description.map((err) => (
-                      <span key={err}> {err} </span>
+                      <p key={err}> {err} </p>
                     ))}
                   </>
                 )
