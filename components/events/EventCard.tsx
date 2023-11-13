@@ -12,7 +12,7 @@ interface Props {
 export default function EventCard({ event }: Props) {
   return (
     <Card className="py-4 max-w-[300px]">
-      <CardBody className="overflow-hidden">
+      <CardBody className="overflow-hidden max-h-[250px]">
         <Image
           as={NextImage}
           alt="Event image"

@@ -1,16 +1,24 @@
 import MainContainer from "@/components/containers/MainContainer";
-import EventList from "@/components/events/EventList";
 import { db } from "@/libs/db";
-import React from "react";
+import CarouselWithPopularEvents from "./components/CarouselWithPopularEvents";
+import FreeEvents from "./components/FreeEvents";
+import PopularEvents from "./components/PopularEvents";
+import UpcomingEvents from "./components/UpcomingEvents";
 
 async function Page() {
   const events = await db.event.findMany();
   return (
-    <MainContainer>
-      <div className="pt-6 pb-6">
-        <EventList events={events} />
-      </div>
-    </MainContainer>
+    <div>
+      {/* carousel with default image and  six popular events events */}
+      <CarouselWithPopularEvents images={events.map((e) => e.imageUrl)} />
+      <MainContainer>
+        <div className="pt-6 pb-6 space-y-6">
+          <PopularEvents />
+          <UpcomingEvents />
+          <FreeEvents />
+        </div>
+      </MainContainer>
+    </div>
   );
 }
 
