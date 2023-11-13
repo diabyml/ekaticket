@@ -6,7 +6,13 @@ import PopularEvents from "./components/PopularEvents";
 import UpcomingEvents from "./components/UpcomingEvents";
 
 async function Page() {
-  const events = await db.event.findMany();
+  const events = await db.event.findMany({
+    take: 6,
+    orderBy: {
+      ticketsBought: "desc",
+    },
+    select: { imageUrl: true },
+  });
   return (
     <div>
       {/* carousel with default image and  six popular events events */}
