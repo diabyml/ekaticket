@@ -14,6 +14,8 @@ const config: Config = {
     "./node_modules/@nextui-org/theme/dist/components/checkbox.js",
     "./node_modules/@nextui-org/theme/dist/components/card.js",
     "./node_modules/@nextui-org/theme/dist/components/image.js",
+    "./node_modules/@nextui-org/theme/dist/components/divider.js",
+    "./node_modules/@nextui-org/theme/dist/components/modal.js",
   ],
   theme: {
     extend: {

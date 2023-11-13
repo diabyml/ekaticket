@@ -4,6 +4,7 @@ import { Image } from "@nextui-org/image";
 import NextImage from "next/image";
 import { Event } from "@prisma/client";
 import { MapPin, Clock4, Plus } from "lucide-react";
+import Link from "next/link";
 
 interface Props {
   event: Event;
@@ -11,7 +12,7 @@ interface Props {
 
 export default function EventCard({ event }: Props) {
   return (
-    <Card className="py-4 max-w-[300px]">
+    <Card className="py-4 max-w-[300px]" as={Link} href={`/events/${event.id}`}>
       <CardBody className="overflow-hidden max-h-[250px]">
         <Image
           as={NextImage}

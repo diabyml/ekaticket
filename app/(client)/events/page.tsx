@@ -5,7 +5,7 @@ import React from "react";
 function Page() {
   return (
     <MainContainer>
-      <div className="pt-6">
+      <div className="pt-6 pb-6">
         <p>My events appear here</p>
       </div>
     </MainContainer>
