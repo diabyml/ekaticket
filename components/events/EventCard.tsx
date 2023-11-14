@@ -8,11 +8,16 @@ import Link from "next/link";
 
 interface Props {
   event: Event;
+  maxW?: string;
 }
 
-export default function EventCard({ event }: Props) {
+export default function EventCard({ event, maxW }: Props) {
   return (
-    <Card className="py-4 max-w-[300px]" as={Link} href={`/events/${event.id}`}>
+    <Card
+      className={`py-4 max-w-[300px]`}
+      as={Link}
+      href={`/events/${event.id}`}
+    >
       <CardBody className="overflow-hidden max-h-[250px]">
         <Image
           as={NextImage}

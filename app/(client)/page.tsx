@@ -11,11 +11,9 @@ async function Page() {
     orderBy: {
       ticketsBought: "desc",
     },
-    select: { imageUrl: true },
   });
   return (
     <div>
-      {/* carousel with default image and  six popular events events */}
       <CarouselWithPopularEvents images={events.map((e) => e.imageUrl)} />
       <MainContainer>
         <div className="pt-6 pb-6 space-y-6">
