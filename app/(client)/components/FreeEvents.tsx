@@ -18,7 +18,7 @@ async function FreeEvents() {
           className="text-2xl text-secondary-400"
         />
         <div className="">
-          <Link href={"#"} className="text-blue-400">
+          <Link href={"/events/free"} className="text-blue-400">
             Voir Plus
           </Link>
         </div>

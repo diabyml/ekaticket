@@ -6,10 +6,9 @@ import { db } from "@/libs/db";
 
 async function Page() {
   const events = await db.event.findMany({
+    where: { price: 0 },
+    orderBy: { createdAt: "desc" },
     take: INFINITE_SCROLL_PAGINATION_RESULTS,
-    orderBy: {
-      ticketsBought: "desc",
-    },
   });
 
   return (
@@ -17,12 +16,12 @@ async function Page() {
       <div className="py-6">
         <div className="mb-4 ml-2">
           <Heading
-            title="Événements populaire"
+            title="Événements Gratuit"
             className="text-2xl text-secondary-400"
           />
         </div>
 
-        <PaginatedEvents initialEvents={events} eventType="popular" />
+        <PaginatedEvents initialEvents={events} eventType="free" />
       </div>
     </SmallContainer>
   );

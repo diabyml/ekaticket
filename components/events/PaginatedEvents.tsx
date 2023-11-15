@@ -10,9 +10,10 @@ import EventCard from "./EventCard";
 
 interface Props {
   initialEvents: Event[];
+  eventType: string;
 }
 
-const InfinitePopularEvents: React.FC<Props> = ({ initialEvents }) => {
+const PaginatedEvents: React.FC<Props> = ({ initialEvents, eventType }) => {
   const lastPostRef = useRef<HTMLElement>(null);
 
   const { ref, entry } = useIntersection({
@@ -23,7 +24,7 @@ const InfinitePopularEvents: React.FC<Props> = ({ initialEvents }) => {
   const { data, fetchNextPage, isFetchingNextPage } = useInfiniteQuery(
     ["infinite-query"],
     async ({ pageParam = 1 }) => {
-      const query = `/api/events?limit=${INFINITE_SCROLL_PAGINATION_RESULTS}&page=${pageParam}`;
+      const query = `/api/events/pagination?limit=${INFINITE_SCROLL_PAGINATION_RESULTS}&page=${pageParam}&eventType=${eventType}`;
 
       const { data } = await axios.get(query);
       return data as Event[];
@@ -71,4 +72,4 @@ const InfinitePopularEvents: React.FC<Props> = ({ initialEvents }) => {
   );
 };
 
-export default InfinitePopularEvents;
+export default PaginatedEvents;

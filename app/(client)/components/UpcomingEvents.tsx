@@ -16,7 +16,7 @@ async function UpcomingEvents() {
           className="text-2xl text-secondary-400"
         />
         <div className="">
-          <Link href={"#"} className="text-blue-400">
+          <Link href={"/events/upcoming"} className="text-blue-400">
             Voir Plus
           </Link>
         </div>
